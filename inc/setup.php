@@ -90,6 +90,9 @@ if ( ! function_exists( 'understrap_setup' ) ) :
 
 		// Check and setup theme default settings.
 		setup_theme_default_settings();
+
+		// Create custom menu location for Header CTAs
+		register_nav_menu('header-cta',__( 'Header CTA' ));
 	}
 endif; // understrap_setup.
 add_action( 'after_setup_theme', 'understrap_setup' );
@@ -123,3 +126,5 @@ if ( ! function_exists( 'all_excerpts_get_more_link' ) ) {
 	}
 }
 add_filter( 'wp_trim_excerpt', 'all_excerpts_get_more_link' );
+
+

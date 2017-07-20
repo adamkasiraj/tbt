@@ -7,7 +7,7 @@
  * @package understrap
  */
 
-$container = get_theme_mod( 'understrap_container_type' );
+// $container = get_theme_mod( 'understrap_container_type' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -28,60 +28,67 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="hfeed site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
-	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
+	<div class="wrapper-fluid wrapper-navbar bg-inverse" id="wrapper-navbar">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'understrap' ); ?></a>
 
-		<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+			<?php if ( 'container' == $container ) : ?>
+				<div class="container">
+			<?php endif; ?>
+				
+				<nav class="navbar navbar-toggleable-md navbar-inverse pb-0">
 
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-				<button class="navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
 
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-							
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						
-						<?php endif; ?>
-						
+						<a class="navbar-brand" 
+							rel="home" 
+							href="<?php echo esc_url( home_url( '/' ) ); ?>" 
+							title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+						>
+							<?php bloginfo( 'name' ); ?></a>		
 					
 					<?php } else {
 						the_custom_logo();
 					} ?><!-- end custom logo -->
 
-				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav mr-auto mt-2 mt-md-0',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-						'after'			  => 'test',
-					)
-				); ?>
+					<!-- The WordPress Menu goes here -->
+					<?php wp_nav_menu(
+						array(
+							'theme_location'  => 'primary',
+							'container_class' => 'collapse navbar-collapse',
+							'container_id'    => 'navbarNavDropdown',
+							'menu_class'      => 'navbar-nav',
+							'fallback_cb'     => '',
+							'menu_id'         => 'main-menu',
+							'walker'          => new WP_Bootstrap_Navwalker(),
+						)
+					); ?>
 
-				<a class="btn btn-primary btn-header ml-auto" type="button" href="google.com">
-					Lets Ride
-				</a>
-			<?php if ( 'container' == $container ) : ?>
+					<a class="btn btn-primary ml-auto hidden-md-down" href="#">Lets Ride</a>
+
+
+
+
+
+				</nav><!-- .site-navigation -->
+			
+		<?php if ( 'container' == $container ) : ?>
 			</div><!-- .container -->
-			<?php endif; ?>
-
-		</nav><!-- .site-navigation -->
+		<?php endif; ?>
 
 	</div><!-- .wrapper-navbar end -->
+	<div class="container">
+		<div class="card cta-callout">
+			<div class="card-header">
+				<div>Customize a ride</div>
+				<a class="btn btn-primary btn-cta" href="#">Lets Ride</a>
+			</div>
+		</div>
+	</div>
+
