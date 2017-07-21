@@ -52,7 +52,7 @@
 
 	#navbarNavDropdown {
 		background-color: $gray-lightest;
-		margin-top: $spacer-y * .5;
+		margin-top: $spacer-y;
 		margin-bottom: 0;
 		margin-left: -$spacer-x;
 		margin-right: -$spacer-x;
@@ -81,5 +81,12 @@
 
 		}
 		
+	}
+}
+
+.cta-callout {
+	border-top: none;
+	.card-header {
+		border-bottom: none;
 	}
 }

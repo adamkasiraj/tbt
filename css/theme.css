@@ -8494,7 +8494,7 @@ h1.navbar-brand a:hover {
 @media (max-width: 991px) {
   #navbarNavDropdown {
     background-color: #f7f7f9;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 0;
     margin-left: -1rem;
     margin-right: -1rem; }
@@ -8511,3 +8511,8 @@ h1.navbar-brand a:hover {
       #navbarNavDropdown .navbar-nav .dropdown-menu .nav-link {
         padding: 1rem 2rem;
         color: #464a4c; } }
+
+.cta-callout {
+  border-top: none; }
+  .cta-callout .card-header {
+    border-bottom: none; }

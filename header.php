@@ -83,11 +83,13 @@
 		<?php endif; ?>
 
 	</div><!-- .wrapper-navbar end -->
-	<div class="container">
-		<div class="card cta-callout">
-			<div class="card-header">
-				<div>Customize a ride</div>
-				<a class="btn btn-primary btn-cta" href="#">Lets Ride</a>
+	<div class="container hidden-lg-up">
+		<div class="col-12 col-sm-11 col-md-10 mx-auto">
+			<div class="card cta-callout text-center">
+				<div class="card-header">
+					<div>Customize a ride</div>
+					<a class="btn btn-primary btn-cta" href="#">Lets Ride</a>
+				</div>
 			</div>
 		</div>
 	</div>
