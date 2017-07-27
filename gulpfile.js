@@ -18,7 +18,7 @@ var browserSyncWatchFiles = [
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-    proxy: "localhost/wordpress/",
+    proxy: "localhost/",
     notify: false
 };
 
@@ -118,7 +118,7 @@ gulp.task('sass', function () {
 // gulp watch
 // Starts watcher. Watcher runs gulp sass task on changes
 gulp.task('watch', function () {
-    gulp.watch('./sass/**/*.scss', ['styles']);
+    gulp.watch('./sass/**/**/*.scss', ['styles']);
     gulp.watch([basePaths.dev + 'js/**/*.js','js/**/*.js','!js/theme.js','!js/theme.min.js'], ['scripts']);
 
     //Inside the watch task.

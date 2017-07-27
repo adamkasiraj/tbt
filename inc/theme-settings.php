@@ -27,3 +27,4 @@ function setup_theme_default_settings() {
 		set_theme_mod( 'understrap_container_type', 'container' );
 	}
 }
+

@@ -1,0 +1,33 @@
+#uwpqsf_id {
+  background-color:$gray-lighter;
+  padding:5px 10px;
+  margin-bottom:20px;
+
+  .uform_title {
+    font-size:2em;
+  }
+
+  .uwpqsf_class{
+    margin-bottom:5px; 
+    float: left; 
+    clear: none;
+  }
+
+  #tax-select-0, #tax-select-1 { width:35%; }
+
+  #uwpqsf_btn { 
+    float: left; 
+    margin-top: 25px; 
+    width: 29%;
+
+    input {
+      padding: 5px 20px; 
+      border-radius: 3px; 
+      text-transform: uppercase;
+      border-style: none;
+      border: 1px solid $gray;
+      font-weight: 300;
+      background-color: #F8E71C;
+    }
+  }
+}

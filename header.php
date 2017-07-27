@@ -7,7 +7,6 @@
  * @package understrap
  */
 
-// $container = get_theme_mod( 'understrap_container_type' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,77 +19,82 @@
 	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="shortcut icon" href="<?php the_field('settings_favicon', 'option'); ?>" type="image/x-icon" />
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
 <div class="hfeed site" id="page">
+	<header id="site-header">
 
-	<!-- ******************* The Navbar Area ******************* -->
-	<div class="wrapper-fluid wrapper-navbar bg-inverse" id="wrapper-navbar">
+		<section class="masthead hidden-md-down container-fluid" style="background:url('<?php the_field('settings_masthead', 'option'); ?>')no-repeat center; background-size:cover;" role="banner">
+			<div class="overlay"></div>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+				<img class="mx-auto d-block site-logo" src="<?php the_field('settings_logo', 'option'); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> logo" />	
+			</a>
+		</section>
 
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-		'understrap' ); ?></a>
+		<!-- ******************* The Navbar Area ******************* -->
+		<div class="wrapper-fluid wrapper-navbar bg-inverse" id="wrapper-navbar">
 
-			<?php if ( 'container' == $container ) : ?>
-				<div class="container">
-			<?php endif; ?>
-				
-				<nav class="navbar navbar-toggleable-md navbar-inverse pb-0">
+			<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
+			'understrap' ); ?></a>
 
-					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<a class="navbar-brand" 
-							rel="home" 
-							href="<?php echo esc_url( home_url( '/' ) ); ?>" 
-							title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
-						>
-							<?php bloginfo( 'name' ); ?></a>		
+				<div class="container-fluid">
 					
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
+					<nav class="navbar navbar-toggleable-md navbar-inverse px-0">
 
-					<!-- The WordPress Menu goes here -->
-					<?php wp_nav_menu(
-						array(
-							'theme_location'  => 'primary',
-							'container_class' => 'collapse navbar-collapse',
-							'container_id'    => 'navbarNavDropdown',
-							'menu_class'      => 'navbar-nav',
-							'fallback_cb'     => '',
-							'menu_id'         => 'main-menu',
-							'walker'          => new WP_Bootstrap_Navwalker(),
-						)
-					); ?>
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
 
-					<a class="btn btn-primary ml-auto hidden-md-down" href="#">Lets Ride</a>
+						<!-- Your site title as branding in the menu -->
+						<?php if ( ! has_custom_logo() ) { ?>
+
+							<a class="navbar-brand hidden-lg-up" 
+								rel="home" 
+								href="<?php echo esc_url( home_url( '/' ) ); ?>" 
+								title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+							>
+								<?php bloginfo( 'name' ); ?></a>		
+						
+						<?php } else {
+							the_custom_logo();
+						} ?><!-- end custom logo -->
+
+						<!-- The WordPress Menu goes here -->
+						<?php wp_nav_menu(
+							array(
+								'theme_location'  => 'primary',
+								'container_class' => 'collapse navbar-collapse',
+								'container_id'    => 'navbarNavDropdown',
+								'menu_class'      => 'navbar-nav',
+								'fallback_cb'     => '',
+								'menu_id'         => 'main-menu',
+								'walker'          => new WP_Bootstrap_Navwalker(),
+							)
+						); ?>
+
+						<?php
+							// Display header nav widget area 
+							if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('nav-sidebar') ) : endif; 
+						?>
 
 
 
 
 
-				</nav><!-- .site-navigation -->
-			
-		<?php if ( 'container' == $container ) : ?>
+					</nav><!-- .site-navigation -->
+				
 			</div><!-- .container -->
-		<?php endif; ?>
 
-	</div><!-- .wrapper-navbar end -->
-	<div class="container hidden-lg-up">
-		<div class="col-12 col-sm-11 col-md-10 mx-auto">
-			<div class="card cta-callout text-center">
-				<div class="card-header">
-					<div>Customize a ride</div>
-					<a class="btn btn-primary btn-cta" href="#">Lets Ride</a>
-				</div>
-			</div>
-		</div>
-	</div>
+
+		</div><!-- .wrapper-navbar end -->
+	</header>
+
+	<?php 
+		// Display Header Callout widget area on non home pages
+		if ( ( !is_front_page() && !is_home() ) && ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-callout') ) ) : endif; 
+	?>
 

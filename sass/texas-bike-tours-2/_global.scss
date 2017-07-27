@@ -1,0 +1,39 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: $gray;
+
+}
+
+a {
+	color: $gray-light;
+
+	&:hover {
+		color: $gray;
+	}
+}
+
+blockquote {
+	display:block;
+	padding: 15px 20px 15px 45px;
+	margin: 0;
+	position: relative;
+	font-style: italic;
+	font-family: Georgia, serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: $gray-light;
+	text-align: justify;
+	border-left: 15px solid $gray-light;
+	border-right: 2px solid $gray-light;
+  
+	&:before{
+		content: "\201C"; /*Unicode for Left Double Quote*/
+		font-family: Georgia, serif;
+		font-size: 60px;
+		font-weight: bold;
+		color: $gray-lighter;
+		position: absolute;
+		left: 10px;
+		top:0;
+	}
+}

@@ -11,6 +11,11 @@
 require get_template_directory() . '/inc/setup.php';
 
 /**
+ * Load Custom Fields.
+ */
+require get_template_directory() . '/inc/advanced-custom-fields.php';
+
+/**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
@@ -61,6 +66,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load custom WordPress nav walker.
  */
 require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
+require get_template_directory() . '/inc/footer-navwalker.php';
 
 /**
  * Load WooCommerce functions.
@@ -71,5 +77,4 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Load Editor functions.
  */
 require get_template_directory() . '/inc/editor.php';
-
 

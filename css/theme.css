@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400");
 /*!
  * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -8463,8 +8464,89 @@ h1.navbar-brand a:hover {
 .gallery-caption {
   display: block; }
 
+body {
+  font-family: 'Lato', sans-serif;
+  color: #464a4c; }
+
+a {
+  color: #636c72; }
+  a:hover {
+    color: #464a4c; }
+
+blockquote {
+  display: block;
+  padding: 15px 20px 15px 45px;
+  margin: 0;
+  position: relative;
+  font-style: italic;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #636c72;
+  text-align: justify;
+  border-left: 15px solid #636c72;
+  border-right: 2px solid #636c72; }
+  blockquote:before {
+    content: "\201C";
+    /*Unicode for Left Double Quote*/
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #ddd;
+    position: absolute;
+    left: 10px;
+    top: 0; }
+
+.card {
+  margin-bottom: 20px; }
+
+.card-article .card-title {
+  overflow: hidden;
+  line-height: 1.4em;
+  height: 2.8em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: .25em; }
+
+.card-article .card-text {
+  overflow: hidden;
+  line-height: 1.4em;
+  height: 4.2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; }
+
+.card-article .card-footer .entry-read-more {
+  background-color: #ddd;
+  color: #464a4c;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 15px; }
+
+.card-review {
+  font-size: .75em; }
+
+@media (max-width: 575px) {
+  .card {
+    margin: 15px auto; }
+  .card-article {
+    max-width: 350px; } }
+
+.masthead {
+  background-size: cover; }
+  .masthead .site-logo {
+    padding: 15px 0;
+    max-height: 250px; }
+
+.nav-widget {
+  display: inline-block; }
+
 .navbar {
-  min-height: 60px; }
+  min-height: 60px;
+  font-weight: 300;
+  text-transform: uppercase; }
   .navbar .navbar-brand {
     font-size: 1.45rem; }
 
@@ -8475,23 +8557,27 @@ h1.navbar-brand a:hover {
   font-weight: 300;
   text-transform: uppercase; }
 
-#navbarNavDropdown {
-  margin-bottom: -0.5rem; }
-  #navbarNavDropdown .navbar-nav .dropdown-menu {
-    background-color: #f7f7f9;
-    margin-top: 0;
-    padding: 0; }
-    #navbarNavDropdown .navbar-nav .dropdown-menu .nav-link {
-      color: #636c72;
-      padding: 1rem; }
-      #navbarNavDropdown .navbar-nav .dropdown-menu .nav-link:hover {
-        background-color: #e8e8ee; }
-  #navbarNavDropdown .navbar-nav .nav-link {
-    color: #ddd;
-    padding-right: 1rem;
-    padding-left: 1rem; }
+#navbarNavDropdown .navbar-nav .dropdown-menu {
+  background-color: #f7f7f9;
+  margin-top: 0.5rem;
+  padding: 0; }
+  #navbarNavDropdown .navbar-nav .dropdown-menu .nav-link {
+    color: #636c72;
+    padding: 1rem; }
+    #navbarNavDropdown .navbar-nav .dropdown-menu .nav-link:hover {
+      background-color: #e8e8ee; }
+
+#navbarNavDropdown .navbar-nav .nav-link {
+  color: #ddd;
+  padding-right: 2rem;
+  white-space: nowrap;
+  padding-left: 0; }
 
 @media (max-width: 991px) {
+  .navbar {
+    padding-bottom: 0; }
+  #wrapper-navbar .container-override {
+    width: 100%; }
   #navbarNavDropdown {
     background-color: #f7f7f9;
     margin-top: 1rem;
@@ -8516,3 +8602,108 @@ h1.navbar-brand a:hover {
   border-top: none; }
   .cta-callout .card-header {
     border-bottom: none; }
+
+.jumbotron {
+  border-radius: 0;
+  padding: 75px;
+  text-align: center; }
+  .jumbotron.txbt-tour-page-content {
+    padding: 15px; }
+
+.hero {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 100px; }
+
+section:nth-of-type(even) {
+  background-color: #f7f7f9; }
+  section:nth-of-type(even) .content .content-copy {
+    left: 50%; }
+  section:nth-of-type(even) .content .content-img {
+    right: 50%; }
+
+section .content .content-copy {
+  text-align: left;
+  line-height: 2.4em; }
+
+section .content .content-img img {
+  max-height: 300px; }
+
+@media (max-width: 991px) {
+  .jumbotron {
+    padding: 25px; }
+    .jumbotron.txbt-tour-page-content {
+      padding: 10px; }
+  section:nth-of-type(even) .content .content-copy {
+    left: 0; }
+  section:nth-of-type(even) .content .content-img {
+    right: 0; }
+  section .content .content-copy {
+    text-align: center; } }
+
+#uwpqsf_id {
+  background-color: #ddd;
+  padding: 5px 10px;
+  margin-bottom: 20px; }
+  #uwpqsf_id .uform_title {
+    font-size: 2em; }
+  #uwpqsf_id .uwpqsf_class {
+    margin-bottom: 5px;
+    float: left;
+    clear: none; }
+  #uwpqsf_id #tax-select-0, #uwpqsf_id #tax-select-1 {
+    width: 35%; }
+  #uwpqsf_id #uwpqsf_btn {
+    float: left;
+    margin-top: 25px;
+    width: 29%; }
+    #uwpqsf_id #uwpqsf_btn input {
+      padding: 5px 20px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      border-style: none;
+      border: 1px solid #464a4c;
+      font-weight: 300;
+      background-color: #F8E71C; }
+
+#site-footer {
+  background-color: #607d8b;
+  font-weight: 300; }
+  #site-footer a {
+    color: #fff; }
+  #site-footer .footer-callout {
+    max-height: 150px;
+    padding: 15px 0; }
+  #site-footer .footer-contact li.contact {
+    padding: 5px 0;
+    display: block; }
+  #site-footer .footer-contact i {
+    padding-right: 4px; }
+  #site-footer .social-icons li.social {
+    display: inline-block;
+    padding: 0 7.5px;
+    font-size: 1.3em; }
+  #site-footer .footer-nav {
+    padding-left: 0; }
+    #site-footer .footer-nav .footer-nav-item {
+      display: inline-block;
+      padding: 0 20px;
+      border-left: 1px solid #ddd; }
+      #site-footer .footer-nav .footer-nav-item:first-child {
+        border-left: none;
+        padding-left: 0; }
+  #site-footer .copyright {
+    font-size: .8em;
+    color: #f7f7f9;
+    padding-top: 20px; }
+
+@media (max-width: 991px) {
+  #site-footer .social-icons {
+    text-align: center; }
+  #site-footer .footer-contact {
+    text-align: center; }
+    #site-footer .footer-contact li.contact {
+      padding: 0 15px;
+      display: inline-block; }
+  #site-footer .footer-nav .footer-nav-item {
+    padding: 0 10px; } }

@@ -70,36 +70,34 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Hero Slider', 'understrap' ),
-			'id'            => 'hero',
-			'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
-			'before_widget' => '<div class="carousel-item">',
-			'after_widget'  => '</div>',
-			'before_title'  => '',
-			'after_title'   => '',
+			'name'          => __( 'Header Nav', 'understrap' ),
+			'id'            => 'nav-sidebar',
+			'description'   => 'Right aligned widget area in the header nav (only shows on desktop devices)',
+			'before_widget' => '<div class="nav-widget ml-auto hidden-md-down">',
+    		'after_widget' => '</div>',
+    		'before_title' => '',
+    		'after_title' => '',
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Hero Static', 'understrap' ),
-			'id'            => 'statichero',
-			'description'   => 'Static Hero widget. no slider functionallity',
-		    'before_widget'  => '<div id="%1$s" class="static-hero-widget %2$s '. slbd_count_widgets( 'statichero' ) .'">', 
-		    'after_widget'   => '</div><!-- .static-hero-widget -->', 
-		    'before_title'   => '<h3 class="widget-title">', 
-		    'after_title'    => '</h3>',
-		) );
-
-		register_sidebar( array(
-			'name'          => __( 'Footer Full', 'understrap' ),
-			'id'            => 'footerfull',
-			'description'   => 'Widget area below main content and above footer',
-		    'before_widget'  => '<div id="%1$s" class="footer-widget %2$s '. slbd_count_widgets( 'footerfull' ) .'">', 
-		    'after_widget'   => '</div><!-- .footer-widget -->', 
-		    'before_title'   => '<h3 class="widget-title">', 
-		    'after_title'    => '</h3>', 
+			'name'          => __( 'Header Callout', 'understrap' ),
+			'id'            => 'header-callout',
+			'description'   => 'Widget area directly below the nav (only shows on mobile devices and non home pages)',
+			'before_widget' => '<div class="container hidden-lg-up">
+									<div class="col-12 col-sm-11 col-md-10 mx-auto">
+										<div class="card cta-callout text-center">
+											<div class="card-header">',
+    		'after_widget' => 				'</div>
+										</div>
+									</div>
+								</div>',
+    		'before_title' => '',
+    		'after_title' => '',
 		) );
 
 	}
 } // endif function_exists( 'understrap_widgets_init' ).
 add_action( 'widgets_init', 'understrap_widgets_init' );
+
+remove_filter('widget_text_content', 'wpautop');
 

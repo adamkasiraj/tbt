@@ -1,0 +1,59 @@
+.jumbotron {
+	border-radius: 0;
+	padding:75px;
+	text-align:center;
+
+	&.txbt-tour-page-content {
+		padding:15px;
+	}
+}
+
+.hero {
+	color: $white;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	padding:100px;
+}
+
+section {
+	&:nth-of-type(even){
+		background-color:$gray-lightest;
+		.content {
+			.content-copy{ 
+				left: 50%;
+			}
+			.content-img {
+				right: 50%;
+			}
+		}
+	}
+	.content {
+		.content-copy{ 
+			text-align: left; 
+			line-height:2.4em;
+		}
+		.content-img {
+			img { max-height:300px; }
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.jumbotron {
+		padding:25px;
+
+		&.txbt-tour-page-content {
+			padding:10px;
+		}
+	}
+	section {
+		&:nth-of-type(even){
+			.content {
+				.content-copy{ left: 0; }
+				.content-img { right: 0; }
+			}
+		}
+		.content {
+			.content-copy{ text-align: center; }
+		}
+	}
+}
