@@ -100,3 +100,6 @@ function wc_form_field_args( $args, $key, $value = null ) {
 	} // end switch ($args).
 	return $args;
 }
+
+// Hides the "Showing X results" message underneath the title on the Gifts page.
+remove_action("woocommerce_before_shop_loop", "woocommerce_result_count", 20);
