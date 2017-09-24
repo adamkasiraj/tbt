@@ -103,3 +103,13 @@ function wc_form_field_args( $args, $key, $value = null ) {
 
 // Hides the "Showing X results" message underneath the title on the Gifts page.
 remove_action("woocommerce_before_shop_loop", "woocommerce_result_count", 20);
+
+// Removes the "SKU" message on the product pages.
+function remove_product_page_skus($enabled) {
+	if (!is_admin() && is_product()) {
+		return false;
+	}
+
+	return $enabled;
+}
+add_filter('wc_product_sku_enabled', 'remove_product_page_skus');
