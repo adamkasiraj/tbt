@@ -100,3 +100,46 @@ function wc_form_field_args( $args, $key, $value = null ) {
 	} // end switch ($args).
 	return $args;
 }
+
+// Hides the "Showing X results" message underneath the title on the Gifts page.
+remove_action("woocommerce_before_shop_loop", "woocommerce_result_count", 20);
+
+// Removes the "SKU" message on the product pages.
+function remove_product_page_skus($enabled) {
+	if (!is_admin() && is_product()) {
+		return false;
+	}
+
+	return $enabled;
+}
+add_filter('wc_product_sku_enabled', 'remove_product_page_skus');
+
+// Changes the name of the "Add To Cart" buttons
+function product_add_to_cart_text() {
+	global $product;
+	$product_type = $product->product_type;
+
+	switch ($product_type) {
+		case 'external':
+			return __('Buy product', 'woocommerce');
+			break;
+		case 'grouped':
+			return __('View products', 'woocommerce');
+			break;
+		case 'simple':
+			return __('Add to Bike Bag', 'woocommerce');
+			break;
+		case 'variable':
+			return __('Select options', 'woocommerce');
+			break;
+		default:
+			return __('Read more', 'woocommerce');
+	}
+}
+add_filter('woocommerce_product_add_to_cart_text' , 'product_add_to_cart_text');
+
+// Changes the name of the "Add To Cart" buttons on the product pages
+function single_add_to_cart_text() {
+	return __('Add to Bike Bag', 'woocommerce');
+}
+add_filter('woocommerce_product_single_add_to_cart_text', 'single_add_to_cart_text');
